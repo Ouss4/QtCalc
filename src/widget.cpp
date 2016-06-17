@@ -39,7 +39,7 @@ void Widget::connectB()
     connect(ui->button8, SIGNAL(clicked()), this, SLOT(buttonClicked()));
     connect(ui->button9, SIGNAL(clicked()), this, SLOT(buttonClicked()));
 }
-
+// One slot for all digit buttons (1-9). Connection done by the function above.
 void Widget::buttonClicked()
 {
     QPushButton *sButton = qobject_cast<QPushButton *>(sender());
@@ -59,6 +59,7 @@ void Widget::buttonClicked()
     firstStr.clear();
 }
 
+// Rest of buttons have a slot for each. Connection made directly the name (on_name_event()).
 void Widget::on_buttonA_clicked()
 {
     action = ADD;
